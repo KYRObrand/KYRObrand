@@ -110,6 +110,143 @@
     </section>
 
     <script src="script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        async function initFirebase() {
+            // 1. Placeholder Config (This is what you would edit if you were touching code)
+            const placeholderConfig = {
+                apiKey: "YOUR_API_KEY",
+                authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+                projectId: "YOUR_PROJECT_ID",
+                storageBucket: "YOUR_PROJECT_ID.appspot.com",
+                messagingSenderId: "YOUR_SENDER_ID",
+                appId: "YOUR_APP_ID"
+            };
+
+            // 2. Check if we have a saved config in LocalStorage (User entered it previously)
+            const storedConfigStr = localStorage.getItem('pixel_firebase_config');
+            let config = null;
+
+            // 3. Logic: If code is untouched, look for storage. If storage empty, ask user.
+            if (placeholderConfig.apiKey === "YOUR_API_KEY") {
+                if (storedConfigStr) {
+                    try {
+                        config = JSON.parse(storedConfigStr);
+                    } catch (e) {
+                        console.error("Corrupt config");
+                        localStorage.removeItem('pixel_firebase_config');
+                    }
+                }
+            } else {
+                // User edited the code directly
+                config = placeholderConfig;
+            }
+
+            // 4. If acts as a setup wizard if no config found
+            if (!config) {
+                console.log("No config found. Launching Setup Wizard...");
+                createSetupWizard();
+                return;
+            }
+
+            // 5. Initialize Firebase
+            try {
+                const app = initializeApp(config);
+                const db = getFirestore(app);
+                console.log("🔥 Firebase Connected:", config.projectId);
+
+                // 6. Run the requested Test
+                try {
+                    const docRef = await addDoc(collection(db, "test"), {
+                        text: "Hello from my website",
+                        time: serverTimestamp(),
+                        url: window.location.href
+                    });
+                    console.log("✅ Test Document Written ID:", docRef.id);
+                } catch (writeErr) {
+                    console.error("❌ Firestore Write Error:", writeErr);
+                    // Often happens if rules are locked
+                    if (writeErr.code === 'permission-denied') {
+                        console.warn("⚠️ Firestore Permission Denied. Check your Security Rules in Firebase Console.");
+                    }
+                }
+
+            } catch (err) {
+                console.error("Firebase Initialization Error:", err);
+                // If config is bad, maybe clear it so they can try again?
+                if (confirm("Firebase connection failed. Clear saved config and try again?")) {
+                    localStorage.removeItem('pixel_firebase_config');
+                    location.reload();
+                }
+            }
+        }
+
+        function createSetupWizard() {
+            const div = document.createElement('div');
+            div.style.cssText = "position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-family: sans-serif; padding: 20px;";
+            div.innerHTML = `
+                <div style="max-width: 500px; width: 100%; background: #111; padding: 2rem; border-radius: 16px; border: 1px solid #333; text-align: center;">
+                    <h2 style="margin-bottom: 1rem;">🔥 Connect Firebase</h2>
+                    <p style="color: #888; margin-bottom: 1.5rem; line-height: 1.5;">
+                        To connect the database without editing code, please paste your 
+                        <strong>firebaseConfig</strong> object below.<br>
+                        <small>(Found in Firebase Console > Project Settings > General)</small>
+                    </p>
+                    
+                    <textarea id="config-input" rows="10" 
+                        style="width: 100%; background: #000; color: #0f0; border: 1px solid #333; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.8rem; margin-bottom: 1.5rem; resize: vertical;"
+                        placeholder='{\n  apiKey: "AIzaSy...",\n  authDomain: "...",\n  projectId: "..."\n}'></textarea>
+                    
+                    <button id="save-config-btn" style="background: white; color: black; border: none; padding: 1rem 2rem; font-size: 1rem; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.2s;">
+                        Connect & Save
+                    </button>
+                    <p style="margin-top: 1rem; color: #444; font-size: 0.7rem;">Saved securely to your browser's Local Storage</p>
+                </div>
+            `;
+            document.body.appendChild(div);
+
+            document.getElementById('save-config-btn').onclick = () => {
+                const input = document.getElementById('config-input').value;
+                try {
+                    // Cleaner: Try to parse strictly first, then loosely
+                    // We use a safe-ish way to turn JS object text into JSON
+                    let jsonString = input;
+                    // If the user pastes a raw JS object { key: "val" }, we need to quote the keys
+                    if (!input.trim().startsWith('"') && !input.trim().startsWith('{')) {
+                        throw new Error("Invalid format");
+                    }
+
+                    // Simple cleaning to try and fix unquoted keys (basic regex approach)
+                    // Note: This is a best-effort helper for the user
+                    jsonString = jsonString
+                        .replace(/([a-zA-Z0-9_]+)\s*:/g, '"$1":') // quote keys
+                        .replace(/'/g, '"'); // replace single quotes
+
+                    // Remove trailing commas which JSON.parse hates
+                    jsonString = jsonString.replace(/,\s*}/g, '}');
+
+                    const parsed = JSON.parse(jsonString);
+
+                    if (!parsed.apiKey || !parsed.projectId) {
+                        alert("Config looks invalid (missing apiKey or projectId). Please try again.");
+                        return;
+                    }
+
+                    localStorage.setItem('pixel_firebase_config', JSON.stringify(parsed));
+                    alert("Configuration Saved! Reloading...");
+                    location.reload();
+
+                } catch (e) {
+                    alert("Could not parse configuration. Please ensure it is valid JSON or a standard JS object.");
+                    console.error(e);
+                }
+            };
+        }
+
+        initFirebase();
+    </script>
 </body>
 
 </html>
