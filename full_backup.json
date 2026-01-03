@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1766883806206,
+    "name": "Positive Energy Tiger Hoodie (white)",
+    "price": 199.99,
+    "description": "This white hoodie features a stylish tiger graphic with \"HRZ\" lettering on the front. The back showcases bold \"POSITIVE ENERGY\" text with an orange accent and \"ESTD 1989\" for a vintage feel. It's a trendy piece with a positive, energetic vibe.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Our brand",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766885429127,
+    "name": "Positive Energy Tiger Hoodie (black)",
+    "price": 199.99,
+    "description": "This black hoodie features a stylish tiger graphic with \"HRZ\" lettering on the front. The back showcases bold \"POSITIVE ENERGY\" text with an orange accent and \"ESTD 1989\" for a vintage feel. It's a trendy piece with a positive, energetic vibe.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Our brand",
+    "colors": [
+      {
+        "hex": "#000000",
+        "name": "Black"
+      }
+    ]
+  },
+  {
+    "id": 1766885556848,
+    "name": "Shadow Spider Hoodie",
+    "price": 199.99,
+    "description": "A sleek black hoodie featuring a clean chest emblem and a bold white spider graphic on the back. Designed for a dark streetwear aesthetic, this piece blends minimal front branding with a powerful, eye-catching back print. Perfect for everyday wear, night fits, and anyone who likes a strong, mysterious style.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Our brand",
+    "colors": [
+      {
+        "hex": "#000000",
+        "name": "Black"
+      }
+    ]
+  },
+  {
+    "id": 1766886026344,
+    "name": "Juice WRLD Legend White Hoodie",
+    "price": 199.99,
+    "description": "Pay tribute to Juice WRLD with this clean white hoodie featuring a minimalist front graphic and a bold “JUICEWRLD” statement across the back. Designed for fans who appreciate both subtle details and standout style, this hoodie blends streetwear energy with a timeless, everyday fit. Soft, comfortable, and easy to style, it’s perfect for concerts, casual wear, or repping Juice WRLD’s legacy wherever you go.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Artists",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766886239485,
+    "name": "Spider Red Symbol Hoodie",
+    "price": 189.99,
+    "description": "Show your love for Spider with this sleek black hoodie featuring a bold red spider symbol on the chest. Inspired by the iconic superhero look, this hoodie combines comfort and style with a clean, powerful design. Perfect for fans, streetwear lovers, or anyone who wants a heroic edge in their outfit.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Others",
+    "colors": [
+      {
+        "hex": "#000000",
+        "name": "Black"
+      }
+    ]
+  },
+  {
+    "id": 1766886348095,
+    "name": "Travis Scott \"Look Mom I Can Fly\" White Hoodie",
+    "price": 199.99,
+    "description": "Elevate your streetwear game with thisTravis Scott-inspired hoodie. Featuring the iconic Travis Scott logo on the front and the artistic \"Look Mom I Can Fly\" graphic with falling figure design on the back. Made from high-quality cotton blend fabric for ultimate comfort and durability. Perfect for fans of hip-hop culture and contemporary street fashion. The clean white colorway makes it versatile for any outfit combination.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Artists",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766887301276,
+    "name": "CR7 Cristiano Ronaldo Black Hoodie",
+    "price": 199.99,
+    "description": "Rep the GOAT with this sleek Cristiano Ronaldo CR7 hoodie. Features the iconic CR7 logo on the chest and bold \"CRISTIANO\" text with signature silhouette graphic on the back. Crafted from premium cotton blend fabric for maximum comfort and lasting quality. Perfect for football fans, sports enthusiasts, and anyone who admires excellence. The classic black design pairs effortlessly with any casual outfit. Show your support for one of football's greatest legends.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Footballers",
+    "colors": [
+      {
+        "hex": "#000000",
+        "name": "Black"
+      }
+    ]
+  },
+  {
+    "id": 1766887395612,
+    "name": "Spider Pink Neon Logo White Hoodie",
+    "price": 189.99,
+    "description": "Swing into style with this eye-catching Spider hoodie featuring a vibrant pink neon spider logo on crisp white fabric. Perfect for Marvel fans who want to stand out from the crowd with a fresh, modern twist on the classic superhero design. Made from soft, high-quality cotton blend for all-day comfort. The minimalist design with bold pink accent creates a streetwear-ready look that's both stylish and iconic. Ideal for casual wear, comic conventions, or showing off your Spider fandom with a unique aesthetic.",
+    "image": "assets/placeholder.png",
+    "imageHover": "assets/placeholder.png",
+    "category": "Others",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766887780608,
+    "name": "Itachi Uchiha x Swoosh Anime Hoodie",
+    "price": 199.99,
+    "description": "Combine anime culture with iconic streetwear style in this unique Itachi Uchiha hoodie. Features the legendary Akatsuki member Itachi merged with a classic swoosh design on the front, while the back showcases a dramatic full-size illustration of Itachi in his signature Akatsuki cloak with crow effects and the Naruto Shippuden logo. Made from comfortable cotton blend fabric. Perfect for Naruto fans, anime enthusiasts, and streetwear collectors who appreciate creative mashup designs. A conversation starter that blends two powerful cultural icons.",
+    "image": "assets/itachi_front.png",
+    "imageHover": "assets/itachi_back.png",
+    "category": "Anime",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766887845882,
+    "name": "Roronoa Zoro \"Nothing Happened\" Anime Hoodie",
+    "price": 199.99,
+    "description": "Represent one of the most legendary moments in anime history with this Roronoa Zoro hoodie. Features Zoro's iconic intense eyes with Japanese text \"ロロノア\" on the front. The back showcases the unforgettable \"Nothing Happened\" scene with Zoro standing bloodied but unbroken, complete with bold \"NOTHING\" text and Japanese phrase \"何も起こらなかった\" (Nothing Happened). Made from comfortable cotton blend fabric. A must-have for true One Piece fans who understand loyalty, sacrifice, and the warrior's code. This design captures the essence of Zoro's unshakeable spirit.",
+    "image": "assets/zoro_front.png",
+    "imageHover": "assets/zoro_back.png",
+    "category": "Anime",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766887903193,
+    "name": "Monkey D. Luffy Wanted Poster Anime Hoodie",
+    "price": 199.99,
+    "description": "Set sail with the future Pirate King in this epic One Piece hoodie. Features a creative swoosh design with anime characters on the front, while the back displays Luffy's iconic \"WANTED\" poster—\"DEAD OR ALIVE\" with his 3 billion berry bounty from the Marines. Made from comfortable cotton blend fabric. Perfect for One Piece fans who've followed Luffy's journey from East Blue to becoming a Yonko. Show the world you're part of the Straw Hat crew with this standout design that celebrates the greatest pirate adventure ever told.",
+    "image": "assets/luffy_front.png",
+    "imageHover": "assets/luffy_back.png",
+    "category": "Anime",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  },
+  {
+    "id": 1766891453162,
+    "name": "El Grande Toto \"Salgoat\" Hoodie",
+    "price": 199.99,
+    "description": "Rep Moroccan hip-hop royalty with this exclusive El Grande Toto \"Salgoat\" hoodie. Features the iconic Salgoat logo on the front in bold brushstroke style, with the legendary monster mascot graphic on the back—complete with menacing red eyes and sharp fangs. Made from quality cotton blend for all-day comfort. A must-have for any true El Grande Toto fan and Moroccan rap enthusiasts. Perfect for concerts, street culture events, or everyday flex. Show your support for one of football's greatest legends.",
+    "image": "assets/hoodie.png",
+    "imageHover": "assets/hoodie.png",
+    "category": "Artists",
+    "colors": [
+      {
+        "hex": "#FFFFFF",
+        "name": "White"
+      }
+    ]
+  }
+]

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist | HRZ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <a href="index.html" class="logo"
+            style="text-decoration: none; color: white; font-weight: 800; font-size: 1.5rem;">HRZ</a>
+        <div class="nav-links">
+            <a href="index.html"
+                style="color: white; text-decoration: none; margin-right: 1rem; font-weight: 500;">Home</a>
+        </div>
+        <a href="cart.html" class="cart-icon" style="text-decoration: none; color: white; display: block;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <div id="cart-badge" style="display: none;">0</div>
+        </a>
+    </nav>
+
+    <main style="padding-top: 100px; padding-bottom: 50px; min-height: 100vh;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 2rem;">Your Wishlist ❤️</h1>
+
+            <div id="wishlist-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5rem;">
+                <!-- Wishlist Items Injected Here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <section id="contact"
+        style="padding: 6rem 2rem 4rem; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;">
+        <!-- Background Glow -->
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; background: radial-gradient(circle, rgba(131,58,180,0.2) 0%, rgba(0,0,0,0) 70%); pointer-events: none;">
+        </div>
+
+        <div class="container"
+            style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2.5rem;">
+
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0;">JOIN THE COMMUNITY</h2>
+            <p style="color: #a3a3a3; max-width: 500px; font-size: 1.1rem;">Follow us on Instagram for exclusive drops,
+                behind the scenes, and community events.</p>
+
+            <!-- BIG INSTAGRAM ICON -->
+            <a href="https://www.instagram.com/hrz__brand?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank" style="display: block; width: 100px; height: 100px;">
+                <svg class="big-insta-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <div
+                style="margin-top: 2rem; width: 100%; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+                <p style="color: #666; font-size: 0.9rem;">© 2025 HRZ. All rights reserved.</p>
+                <a href="index.html"
+                    style="color: #333; font-size: 0.8rem; text-decoration: none; margin-top: 1rem; display: inline-block; opacity: 0.5;">Return
+                    to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Check for products locally if script.js hasn't fully propagated globally yet? 
+        // No, script.js is synchronous. products and wishlist will be available.
+
+        function renderWishlistPage() {
+            const container = document.getElementById('wishlist-grid');
+            if (!container) return;
+
+            // Debug: Refresh wishlist from Storage to be 100% sure
+            wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+            // Filter products that are in wishlist (IDs)
+            const wishlistItems = products.filter(p => wishlist.includes(p.id));
+
+            if (wishlistItems.length === 0) {
+                container.innerHTML = '<div style="color: #666; font-size: 1.5rem; grid-column: span 3; text-align: center;">Nothing here yet... Go explore!</div>';
+                return;
+            }
+
+            container.innerHTML = wishlistItems.map(product => `
+                <div class="product-card glass" style="padding: 1rem; border-radius: 12px; display: flex; flex-direction: column; position: relative;" onclick="window.location.href='product.html?id=${product.id}'">
+                     <!-- Remove Heart -->
+                    <button onclick="event.stopPropagation(); toggleWishlist(${product.id})" style="position: absolute; top: 1rem; right: 1rem; z-index: 10; background: rgba(0,0,0,0.5); border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+                        <span style="font-size: 1.2rem;">💔</span>
+                    </button>
+
+                    <div class="image-container" style="background: linear-gradient(to bottom, #1a1a1a, #0a0a0a); border-radius: 8px; margin-bottom: 1rem; width: 100%; aspect-ratio: 1/1; overflow: hidden; position: relative;">
+                         <img src="${product.image}" class="product-img-main" style="width: 100%; height: 100%; object-fit: contain;">
+                         <img src="${product.imageHover}" class="product-img-hover" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top:0; left:0; opacity:0; transition: opacity 0.3s;">
+                    </div>
+                    
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">${product.name}</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <p style="color: var(--accent-primary); font-weight: 700; font-size: 1.2rem;">${product.price}dh</p>
+                        <button onclick="event.stopPropagation(); window.location.href='product.html?id=${product.id}'" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">View</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', renderWishlistPage);
+    </script>
+</body>
+
+</html>

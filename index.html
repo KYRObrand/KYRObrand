@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRZ | Premium Streetwear</title>
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <a href="index.html" class="logo"
+            style="text-decoration: none; color: white; font-weight: 800; font-size: 1.5rem;">HRZ</a>
+        <div class="nav-links">
+            <a href="wishlist.html"
+                style="color: white; text-decoration: none; font-weight: 600; margin-right: 1.5rem;">Wishlist ❤️</a>
+        </div>
+        <a href="cart.html" class="cart-icon" style="text-decoration: none; color: white; display: block;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <div id="cart-badge" style="display: none;">0</div>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="hero-content">
+            <h1>STREETWEAR<br><span>REDEFINED</span></h1>
+            <p>Premium quality hoodies inspired by anime culture and modern aesthetics.</p>
+            <a href="#filters" class="btn btn-primary">Shop The Drop</a>
+        </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <section id="filters" class="container"
+        style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem; position: relative; z-index: 10;">
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative;">
+            <div style="position: relative; flex-grow: 1; max-width: 500px;">
+                <input type="text" id="search-input" placeholder="Search for products..."
+                    oninput="handleSearchLive(event)" class="glass"
+                    style="padding: 1rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); color: white; background: rgba(0,0,0,0.3); outline: none; width: 100%; font-family: var(--font-main);">
+                <!-- Search Dropdown -->
+                <div id="search-dropdown"
+                    style="display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 0.5rem; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; max-height: 400px; overflow-y: auto; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                    <!-- Results will be injected here -->
+                </div>
+            </div>
+        </div>
+        <div id="filter-buttons-container" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button class="filter-btn active" onclick="filterProducts('All')">All Drops</button>
+            <button class="filter-btn" onclick="filterProducts('Anime')">Anime</button>
+            <!-- Custom categories will be added here dynamically -->
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="container" style="padding-bottom: 4rem;">
+        <div id="product-grid">
+            <!-- Products injected by JS -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="contact"
+        style="padding: 6rem 2rem 4rem; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;">
+        <!-- Background Glow -->
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; background: radial-gradient(circle, rgba(131,58,180,0.2) 0%, rgba(0,0,0,0) 70%); pointer-events: none;">
+        </div>
+
+        <div class="container"
+            style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2.5rem;">
+
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0;">JOIN THE COMMUNITY</h2>
+            <p style="color: #a3a3a3; max-width: 500px; font-size: 1.1rem;">Follow us on Instagram for exclusive drops,
+                behind the scenes, and community events.</p>
+
+            <!-- BIG INSTAGRAM ICON -->
+            <a href="https://www.instagram.com/hrz__brand?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank" style="display: block; width: 100px; height: 100px;">
+                <svg class="big-insta-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%;">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+
+            <div
+                style="margin-top: 2rem; width: 100%; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+                <p style="color: #666; font-size: 0.9rem;">© 2025 HRZ. All rights reserved.</p>
+                <a href="login.html"
+                    style="color: #333; font-size: 0.8rem; text-decoration: none; margin-top: 1rem; display: inline-block; opacity: 0.5; transition: opacity 0.3s;"
+                    onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">Admin Login</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        async function initFirebase() {
+            // 1. Placeholder Config (This is what you would edit if you were touching code)
+            const placeholderConfig = {
+                apiKey: "YOUR_API_KEY",
+                authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+                projectId: "YOUR_PROJECT_ID",
+                storageBucket: "YOUR_PROJECT_ID.appspot.com",
+                messagingSenderId: "YOUR_SENDER_ID",
+                appId: "YOUR_APP_ID"
+            };
+
+            // 2. Check if we have a saved config in LocalStorage (User entered it previously)
+            const storedConfigStr = localStorage.getItem('pixel_firebase_config');
+            let config = null;
+
+            // 3. Logic: If code is untouched, look for storage. If storage empty, ask user.
+            if (placeholderConfig.apiKey === "YOUR_API_KEY") {
+                if (storedConfigStr) {
+                    try {
+                        config = JSON.parse(storedConfigStr);
+                    } catch (e) {
+                        console.error("Corrupt config");
+                        localStorage.removeItem('pixel_firebase_config');
+                    }
+                }
+            } else {
+                // User edited the code directly
+                config = placeholderConfig;
+            }
+
+            // 4. If acts as a setup wizard if no config found
+            if (!config) {
+                console.log("No config found. Launching Setup Wizard...");
+                createSetupWizard();
+                return;
+            }
+
+            // 5. Initialize Firebase
+            try {
+                const app = initializeApp(config);
+                const db = getFirestore(app);
+                console.log("🔥 Firebase Connected:", config.projectId);
+
+                // 6. Run the requested Test
+                try {
+                    const docRef = await addDoc(collection(db, "test"), {
+                        text: "Hello from my website",
+                        time: serverTimestamp(),
+                        url: window.location.href
+                    });
+                    console.log("✅ Test Document Written ID:", docRef.id);
+                } catch (writeErr) {
+                    console.error("❌ Firestore Write Error:", writeErr);
+                    // Often happens if rules are locked
+                    if (writeErr.code === 'permission-denied') {
+                        console.warn("⚠️ Firestore Permission Denied. Check your Security Rules in Firebase Console.");
+                    }
+                }
+
+            } catch (err) {
+                console.error("Firebase Initialization Error:", err);
+                // If config is bad, maybe clear it so they can try again?
+                if (confirm("Firebase connection failed. Clear saved config and try again?")) {
+                    localStorage.removeItem('pixel_firebase_config');
+                    location.reload();
+                }
+            }
+        }
+
+        function createSetupWizard() {
+            const div = document.createElement('div');
+            div.style.cssText = "position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-family: sans-serif; padding: 20px;";
+            div.innerHTML = `
+                <div style="max-width: 500px; width: 100%; background: #111; padding: 2rem; border-radius: 16px; border: 1px solid #333; text-align: center;">
+                    <h2 style="margin-bottom: 1rem;">🔥 Connect Firebase</h2>
+                    <p style="color: #888; margin-bottom: 1.5rem; line-height: 1.5;">
+                        To connect the database without editing code, please paste your 
+                        <strong>firebaseConfig</strong> object below.<br>
+                        <small>(Found in Firebase Console > Project Settings > General)</small>
+                    </p>
+                    
+                    <textarea id="config-input" rows="10" 
+                        style="width: 100%; background: #000; color: #0f0; border: 1px solid #333; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.8rem; margin-bottom: 1.5rem; resize: vertical;"
+                        placeholder='{\n  apiKey: "AIzaSy...",\n  authDomain: "...",\n  projectId: "..."\n}'></textarea>
+                    
+                    <button id="save-config-btn" style="background: white; color: black; border: none; padding: 1rem 2rem; font-size: 1rem; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.2s;">
+                        Connect & Save
+                    </button>
+                    <p style="margin-top: 1rem; color: #444; font-size: 0.7rem;">Saved securely to your browser's Local Storage</p>
+                </div>
+            `;
+            document.body.appendChild(div);
+
+            document.getElementById('save-config-btn').onclick = () => {
+                const input = document.getElementById('config-input').value;
+                try {
+                    // Cleaner: Try to parse strictly first, then loosely
+                    // We use a safe-ish way to turn JS object text into JSON
+                    let jsonString = input;
+                    // If the user pastes a raw JS object { key: "val" }, we need to quote the keys
+                    if (!input.trim().startsWith('"') && !input.trim().startsWith('{')) {
+                        throw new Error("Invalid format");
+                    }
+
+                    // Simple cleaning to try and fix unquoted keys (basic regex approach)
+                    // Note: This is a best-effort helper for the user
+                    jsonString = jsonString
+                        .replace(/([a-zA-Z0-9_]+)\s*:/g, '"$1":') // quote keys
+                        .replace(/'/g, '"'); // replace single quotes
+
+                    // Remove trailing commas which JSON.parse hates
+                    jsonString = jsonString.replace(/,\s*}/g, '}');
+
+                    const parsed = JSON.parse(jsonString);
+
+                    if (!parsed.apiKey || !parsed.projectId) {
+                        alert("Config looks invalid (missing apiKey or projectId). Please try again.");
+                        return;
+                    }
+
+                    localStorage.setItem('pixel_firebase_config', JSON.stringify(parsed));
+                    alert("Configuration Saved! Reloading...");
+                    location.reload();
+
+                } catch (e) {
+                    alert("Could not parse configuration. Please ensure it is valid JSON or a standard JS object.");
+                    console.error(e);
+                }
+            };
+        }
+
+        initFirebase();
+    </script>
+</body>
+
+</html>
